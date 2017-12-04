@@ -6,10 +6,32 @@
     <link rel="stylesheet" href="./main.css">
   </head>
   <body>
-    <!-- <h1>Clicker!</h1> -->
+
+    <div class="menu-modal">
+      <div class="menu">
+        <h1>TapTap</h1>
+        <button id="play" type="button" name="button">Play</button>
+      </div>
+    </div>
+
+    <div class="pause-modal hidden">
+      <div class="pause-menu">
+        <h1>TapTap</h1>
+        <button id="resume" type="button" name="button">Resume</button>
+      </div>
+    </div>
+
+    <div class="gameover-modal hidden">
+      <div class="gameover-menu">
+        <h1>Game Over</h1>
+        <h2 id="score"></h2>
+        <button id="restart" onclick="load()" type="button" name="button">Restart</button>
+        <button id="menu" type="button" name="button">Menu</button>
+      </div>
+    </div>
+
     <canvas id="myCanvas"></canvas>
     <script src="bundle.js"></script>
-    <!-- <p>click the circles before they disappear</p> -->
 
   </body>
 </html>
