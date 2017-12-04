@@ -28,10 +28,10 @@ Considered features:
 
 ### Wireframes
 
-App will be a single page with a menu screen on top.
+App will be a single page with a menu screen. Play screen is shown after pressing play.
 
+![wireframes](./proposal/jsproject.png)  
 Menu and Gameplay
-![wireframes](./proposal/jsproject.png)
 
 ### Implementation
 
