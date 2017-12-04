@@ -31,7 +31,7 @@ Considered features:
 App will be a single page with a menu screen on top.
 
 Menu and Gameplay
-![wireframes](./proposal/jsproject)
+![wireframes](./proposal/jsproject.png)
 
 ### Implementation
 
