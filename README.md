@@ -10,7 +10,7 @@ Additionally, after gameplay, users are able to view the statistics of their pla
 
 ### Functionality
 
-In TapTap, users will be able to play a fun fast paced game.
+In TapTap, users will be able to play a fun fast-paced game.
 
 Users will be able to see the stats of their play.
 
@@ -30,16 +30,15 @@ Considered features:
 
 App will be a single page with a menu screen on top.
 
-Initial load page - menu
-![]()
-
-Gameplay page
-![]()
+Menu and Gameplay
+![wireframes](./proposal/jsproject)
 
 ### Implementation
 
 - Vanilla Javascript for game logic
 - `HTML5 Canvas` for rendering and gameplay
+- HTML and JS for menu
+- JS and CSS for styling
 - Webpack to bundle scripts
 
 Scripts -
@@ -51,28 +50,33 @@ Scripts -
 ### Timeline
 
 **Weekend:**
-[x] Research into game implementation
-[x] Begin initial game logic
+- [x] Research into game implementation
+- [x] Begin initial game logic
 
 **Day 1:** Setup additional gameplay logic...
-[ ] Have basic level of gameplay fully implemented
-  [ ] Score tracking
-  [ ] Level time limit
-[ ] Figure out how to implement the menu in vanilla JS / canvas
+- [ ] Have basic level of gameplay fully implemented
+  - [ ] Score tracking
+  - [ ] Level time limit
+- [ ] Begin implementation of the menu
 
 **Day 2:** Implement menu
-[ ] Have full menu up and running and displaying the appropriate information
-  [ ] Play button starts the game
-  [ ] Stats page shows stats modal with gameplay points
-[ ] Implement pause button logic to return to menu
+- [ ] Have full menu up and running and displaying the appropriate information
+  - [ ] Play button starts the game
+  - [ ] Stats page shows stats modal with gameplay points
+- [ ] Implement pause button logic to return to menu
 
 **Day 3:** Style
-[ ] Get all the game elements and menu elements looking good
-[ ] Implement game modes
-  [ ] casual
-  [ ] quick play
-  [ ] expert
-  [ ] unending
+- [ ] Get all the game elements and menu elements looking good
+- [ ] Implement game modes
+  - [ ] casual
+  - [ ] quick play
+  - [ ] expert
+  - [ ] unending
 
-**Day 4:** Data
-[ ] Data visualization of gameplay statistics
+**Day 4:** Build experience
+- [ ] Add sound effects and music
+- [ ] Build more levels
+
+**Day 5:** Localstorage
+- [ ] Resarch localstorage and how to implement to store user scores
+- [ ] Research bonus features
