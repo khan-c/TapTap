@@ -54,16 +54,16 @@ Scripts -
 - [x] Begin initial game logic
 
 **Day 1:** Setup additional gameplay logic...
-- [ ] Have basic level of gameplay fully implemented
-  - [ ] Score tracking
-  - [ ] Level time limit
-- [ ] Begin implementation of the menu
+- [x] Have basic level of gameplay fully implemented
+  - [x] Score tracking
+  - [x] Level time limit
+- [x] Begin implementation of the menu
 
 **Day 2:** Implement menu
 - [ ] Have full menu up and running and displaying the appropriate information
-  - [ ] Play button starts the game
+  - [x] Play button starts the game
   - [ ] Stats page shows stats modal with gameplay points
-- [ ] Implement pause button logic to return to menu
+- [x] Implement pause button logic to return to menu
 
 **Day 3:** Style
 - [ ] Get all the game elements and menu elements looking good
