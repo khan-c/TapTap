@@ -5,15 +5,21 @@
     <title>jsProject</title>
     <link rel="stylesheet" href="./main.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   </head>
   <body>
+    <audio id="bg-audio" src="./sounds/bg-loop.wav" autoplay loop></audio>
+    <audio id="pop" src="./sounds/pop.mp3"></audio>
 
     <div class="menu-modal">
       <div class="menu">
-        <h1>TapTap</h1>
+        <h1 id="name">TapTap</h1>
         <button id="play" type="button" name="button">Play</button>
         <button id="how-to" type="button" name="button">How To Play</button>
         <button id="stats" type="button" name="button">High Scores</button>
+        <p class="ion-android-volume-off mute hidden"></p>
+        <p class="ion-android-volume-up mute"></p>
       </div>
     </div>
 
@@ -22,6 +28,8 @@
         <h1>Paused</h1>
         <button id="resume" type="button" name="button">Resume</button>
         <button id="quit" type="button" name="button">Quit</button>
+        <p class="ion-android-volume-off mute hidden"></p>
+        <p class="ion-android-volume-up mute"></p>
       </div>
     </div>
 

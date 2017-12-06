@@ -6,6 +6,11 @@ body, html, button, ul, li, input, p {
   color: rgba(1, 108, 21, 0.7);
 }
 
+#name {
+  font-family: "Dancing Script", sans-serif;
+  font-size: 48px;
+}
+
 button {
   padding: 5px 20px;
   border-radius: 10px;
@@ -23,6 +28,21 @@ button:hover {
 }
 
 button:active {
+  transform: scale(1);
+}
+
+.mute {
+  color: rgba(11, 65, 224, 0.85);
+  font-size: 30px;
+  margin: 20px;
+}
+
+.mute:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.mute:active {
   transform: scale(1);
 }
 
