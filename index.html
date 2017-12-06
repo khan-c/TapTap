@@ -13,7 +13,7 @@
         <h1>TapTap</h1>
         <button id="play" type="button" name="button">Play</button>
         <button id="how-to" type="button" name="button">How To Play</button>
-        <button id="stats" type="button" name="button">Your Stats</button>
+        <button id="stats" type="button" name="button">High Scores</button>
       </div>
     </div>
 
@@ -21,17 +21,44 @@
       <div class="pause-menu">
         <h1>Paused</h1>
         <button id="resume" type="button" name="button">Resume</button>
+        <button id="quit" type="button" name="button">Quit</button>
       </div>
     </div>
 
     <div class="gameover-modal hidden">
       <div class="gameover-menu">
-        <h1>Game Over</h1>
-        <h2 id="score"></h2>
-        <h2 id="accuracy"></h2>
-        <h2 id="missed"></h2>
-        <button id="restart" type="button" name="button">Restart</button>
-        <button id="menu" type="button" name="button">Menu</button>
+        <h1 class="game-over-title">Game Over</h1>
+        <div class="game-stats">
+          <h2 id="score"></h2>
+          <h4 id="accuracy"></h4>
+          <h4 id="missed"></h4>
+        </div>
+        <form class="player-name" action="index.html" method="post">
+          <input
+            id="name-input"
+            type="text"
+            placeholder="enter your name"
+            autocomplete="off">
+          <input class="submit" type="submit" value="Enter">
+        </form>
+        <div class="game-over-buttons">
+          <button id="restart" type="button" name="button">Restart</button>
+          <button class="main-menu" type="button" name="button">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-modal hidden">
+      <div class="stats-page">
+        <h1 class="stats-title">High Scores</h1>
+        <!-- <div class="stats-data"> -->
+          <!-- <h4 id="aScore"></h4>
+          <h4 id="aAccuracy"></h4>
+          <h4 id="aMissed"></h4>
+          <h3>High Scores</h3> -->
+          <ul id="stats-info"></ul>
+        <!-- </div> -->
+        <button class="main-menu" type="button" name="button">Main Menu</button>
       </div>
     </div>
 

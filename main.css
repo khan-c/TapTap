@@ -1,13 +1,9 @@
-body, html, button {
+body, html, button, ul, li, input, p {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: "Quicksand", sans-serif;
   color: rgba(1, 108, 21, 0.7);
-}
-
-h2 {
-  margin: 5px;
 }
 
 button {
@@ -32,7 +28,8 @@ button:active {
 
 .menu-modal,
 .pause-modal,
-.gameover-modal {
+.gameover-modal,
+.stats-modal {
   background: rgba(187, 187, 187, 0.3);
   position: fixed;
   top: 0;
@@ -43,7 +40,8 @@ button:active {
 
 .menu,
 .pause-menu,
-.gameover-menu {
+.gameover-menu,
+.stats-page {
   position: fixed;
   top: 25%;
   left: 37.5%;
@@ -57,9 +55,96 @@ button:active {
   border-radius: 20px;
 }
 
+.game-over-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.game-over-buttons button {
+  margin: 0;
+}
+
+.stats-data,
+.game-stats,
+.player-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stats-data {
+  flex: 2;
+}
+
 h1 {
   margin-bottom: 50px;
-  margin-top: 0;
+}
+
+h2 {
+  margin: 5px;
+}
+
+h3 {
+  border-bottom: 1px solid rgba(1, 108, 21, 0.7);
+  margin-bottom: 5px;
+}
+
+h4 {
+  margin: 0;
+}
+
+.stats-page,
+.gameover-menu {
+  justify-content: space-around;
+}
+
+.stats-title,
+.game-over-title {
+  margin-bottom: 10px;
+}
+
+#stats-info {
+  width: 60%;
+  flex: 2;
+}
+
+#stats-info li {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 5px;
+}
+
+#name-input {
+  font-size: 16px;
+  text-align: center;
+}
+
+.submit {
+  margin-top: 5px;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: rgba(11, 65, 224, 0.85);
+  background: none;
+  border: none;
+}
+
+.submit:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.submit:active {
+  transform: scale(1);
 }
 
 .hidden {
