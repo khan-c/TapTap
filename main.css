@@ -68,10 +68,10 @@ button:active {
 .stats-page,
 .how-to-page {
   position: fixed;
-  top: 25%;
-  left: 37.5%;
-  height: 50%;
-  width: 25%;
+  top: 12.5%;
+  left: 25%;
+  height: 75%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
