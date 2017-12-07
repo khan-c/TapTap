@@ -11,6 +11,8 @@
   <body>
     <audio id="bg-audio" src="./sounds/bg-loop.wav" autoplay loop></audio>
     <audio id="pop" src="./sounds/pop.mp3"></audio>
+    <audio id="negative" src="./sounds/negativebeep.wav"></audio>
+    <audio id="gold" src="./sounds/ding.wav"></audio>
 
     <div class="menu-modal">
       <div class="menu">
@@ -20,6 +22,56 @@
         <button id="stats" type="button" name="button">High Scores</button>
         <p class="ion-android-volume-off mute hidden"></p>
         <p class="ion-android-volume-up mute"></p>
+      </div>
+    </div>
+
+    <div class="how-to-modal hidden">
+      <div class="how-to-page">
+        <h1 class="title">How To Play</h1>
+        <p>Get points before time runs out!</p>
+        <p>Fading color shows indicates when circle will disappear.</p>
+        <h2>Types of Circles</h2>
+        <div class="circle-type">
+          <img src="./images/blue.png" alt="">
+          <span>
+            <p class="pp">+1 pt</p>&nbsp;
+            and&nbsp;
+            <p class="ps">+0.5 sec </p>&nbsp;
+            if clicked
+            <p class="ns">-0.25 seconds </p>&nbsp;
+            <p> if never clicked</p>
+          </span>
+        </div>
+        <div class="circle-type">
+          <img src="./images/white.png" alt="">
+          <span>
+            <p class="pp">+1 second</p>&nbsp;
+            if clicked
+          </span>
+        </div>
+        <div class="circle-type">
+          <img src="./images/red.png" alt="">
+          <span>
+            <p class="np">-2 points</p>&nbsp;
+             if clicked
+          </span>
+        </div>
+        <div class="circle-type">
+          <img src="./images/black.png" alt="">
+          <span>
+            <p class="ns">-1 second</p>&nbsp;
+             if clicked
+          </span>
+        </div>
+        <div class="circle-type">
+          <img src="./images/gold.png" alt="">
+          <span>
+            <p class="ps">+1 second</p>&nbsp;
+             and &nbsp;
+            <p class="pp">+5 points</p>
+          </span>
+        </div>
+        <button class="main-menu" type="button" name="button">Main Menu</button>
       </div>
     </div>
 
@@ -35,11 +87,13 @@
 
     <div class="gameover-modal hidden">
       <div class="gameover-menu">
-        <h1 class="game-over-title">Game Over</h1>
+        <h1 class="title">Game Over</h1>
         <div class="game-stats">
           <h2 id="score"></h2>
+          <h4 id="elapsedTime"></h4>
           <h4 id="accuracy"></h4>
-          <h4 id="missed"></h4>
+          <h4 id="badHits"></h4>
+          <!-- <h4 id="missed"></h4> -->
         </div>
         <form class="player-name" action="index.html" method="post">
           <input
@@ -58,7 +112,7 @@
 
     <div class="stats-modal hidden">
       <div class="stats-page">
-        <h1 class="stats-title">High Scores</h1>
+        <h1 class="title">High Scores</h1>
         <!-- <div class="stats-data"> -->
           <!-- <h4 id="aScore"></h4>
           <h4 id="aAccuracy"></h4>

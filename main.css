@@ -6,6 +6,10 @@ body, html, button, ul, li, input, p {
   color: rgba(1, 108, 21, 0.7);
 }
 
+.how-to-page p {
+  text-align: center;
+}
+
 #name {
   font-family: "Dancing Script", sans-serif;
   font-size: 48px;
@@ -48,7 +52,8 @@ button:active {
 .menu-modal,
 .pause-modal,
 .gameover-modal,
-.stats-modal {
+.stats-modal,
+.how-to-modal {
   background: rgba(187, 187, 187, 0.3);
   position: fixed;
   top: 0;
@@ -60,7 +65,8 @@ button:active {
 .menu,
 .pause-menu,
 .gameover-menu,
-.stats-page {
+.stats-page,
+.how-to-page {
   position: fixed;
   top: 25%;
   left: 37.5%;
@@ -72,6 +78,33 @@ button:active {
   align-items: center;
   background: rgba(230, 230, 230, 0.1);
   border-radius: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.circle-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.circle-type:last-of-type {
+  padding-bottom: 0;
+}
+
+.how-to-page h1 {
+  margin-top: 0;
+}
+
+.how-to-page button {
+  margin: 0;
+}
+
+img {
+  height: 40px;
+  width: 40px;
 }
 
 .game-over-buttons {
@@ -107,8 +140,9 @@ h2 {
 }
 
 h3 {
+
   border-bottom: 1px solid rgba(1, 108, 21, 0.7);
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 h4 {
@@ -120,13 +154,12 @@ h4 {
   justify-content: space-around;
 }
 
-.stats-title,
-.game-over-title {
+.title {
   margin-bottom: 10px;
 }
 
 #stats-info {
-  width: 60%;
+  width: 65%;
   flex: 2;
 }
 
@@ -164,6 +197,39 @@ input {
 
 .submit:active {
   transform: scale(1);
+}
+
+.rank {
+  text-align: right;
+  box-sizing: border-box;
+  width: 20px;
+}
+
+.high-score-name {
+  padding-left: 5px;
+  flex: 2;
+}
+
+span {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pp {
+ color: rgb(174, 255, 1);
+}
+
+.ps {
+  color: rgb(1, 255, 83);
+}
+
+.ns {
+  color: rgb(210, 34, 35);
+}
+
+.np {
+  color: rgb(147, 1, 2);
 }
 
 .hidden {
