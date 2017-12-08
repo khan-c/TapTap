@@ -6,7 +6,7 @@ const PORT = 8000;
 const bodyParser = require('body-parser');
 let db = new sqlite3.Database('scores.sqlite');
 
-app.use(express.static('./'));
+app.use(express.static('frontend'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

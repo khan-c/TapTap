@@ -36,7 +36,7 @@ class Circle {
       },
       timeBomb: {
         radius: 0.04 * this.gameDiagonal,
-        color: "rgba(26, 0, 69, 0.8)",
+        color: "rgba(17, 0, 45, 0.9)",
         lifeTime: Math.random() * 750 + 2000,
         timeBonus: -1000,
         timePenalty: 0,
