@@ -6,7 +6,8 @@
     "lib": "lib"
   },
   "engines": {
-    "node": "6.10.1"
+    "node": "6.10.1",
+    "npm": "5.5.1"
   },
   "scripts": {
     "build": "webpack --watch",
