@@ -16,15 +16,15 @@ Users will be able to see the stats of their play.
 
 ### MVPs
 
-[ ] Have multiple levels of game play
-[ ] Start, pause, exit game play
-[ ] Initial gameplay directions
+[x] Have multiple levels of game play
+[x] Start, pause, exit game play
+[x] Initial gameplay directions
 [ ] Statistics page - tracks session statistics
 
 Considered features:
 
 [ ] Special stats page: use gameplay events as data for data visualization
-[ ] Track user historical gameplay statistics (or all players)
+[x] Track user historical gameplay statistics (or all players)
 
 ### Wireframes
 
@@ -60,23 +60,27 @@ Scripts -
 - [x] Begin implementation of the menu
 
 **Day 2:** Implement menu
-- [ ] Have full menu up and running and displaying the appropriate information
+- [x] Have full menu up and running and displaying the appropriate information
   - [x] Play button starts the game
-  - [ ] Stats page shows stats modal with gameplay points
+  - [x] ~~Stats~~ High scores page shows ~~stats~~ scores modal with gameplay points
 - [x] Implement pause button logic to return to menu
 
 **Day 3:** Style
-- [ ] Get all the game elements and menu elements looking good
-- [ ] Implement game modes
-  - [ ] casual
-  - [ ] quick play
-  - [ ] expert
-  - [ ] unending
+- [x] Get all the game elements and menu elements looking good
+- [x] Implement game modes
+  - [x] casual (does not record high scores)
+  - [x] normal (records high scores)
+  - ~~[ ] quick play~~
+  - ~~[ ] expert~~
+  - ~~[ ] unending~~
 
 **Day 4:** Build experience
-- [ ] Add sound effects and music
-- [ ] Build more levels
+- [x] Add sound effects and music
+- ~~[ ] Build more levels~~ Decided unending gameplay was more appealing
+- [x] Implemented Node / Express backend
 
 **Day 5:** Localstorage
-- [ ] Resarch localstorage and how to implement to store user scores
-- [ ] Research bonus features
+- ~~[ ] Resarch localstorage and how to implement to store user scores~~
+- ~~[ ] Research bonus features~~
+- [ ] Figure out how to host project
+- [ ] Finish production README
