@@ -30,7 +30,7 @@ pool.connect((err, client, done) => {
   if (err) {
     console.log(err);
   }
-  app.listen(PORT, () => {
+  app.listen(process.env.PORT || PORT, () => {
     console.log(__dirname);
     console.log(`listening on ${PORT}`);
   });
