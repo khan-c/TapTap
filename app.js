@@ -46,7 +46,7 @@ app.get('/scores', (req, res) => {
       if (errors) throw errors;
       res.send(results.rows);
     });
-    client.release();
+    client.end();
   });
 
   // return pool.connect().then(theclient => {
