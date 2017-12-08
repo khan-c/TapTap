@@ -41,12 +41,12 @@ app.get('/', (req, res) => {
 
 app.get('/scores', (req, res) => {
   const scoresQuery = format('SELECT * FROM scores ORDER BY score DESC LIMIT 15');
-  client.connect().then(() => {
+  return client.connect().then(() => {
     client.query(scoresQuery, (errors, results) => {
       if (errors) {
         console.log(errors);
       }
-      console.log(client);
+
       res.send(results.rows);
     });
     client.end();
