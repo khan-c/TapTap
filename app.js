@@ -26,28 +26,28 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './frontend/index.html'));
 });
 
-pool.connect((err, client, done) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(client);
-  app.listen(process.env.PORT || PORT, () => {
-    console.log(__dirname);
-    console.log(`listening on ${PORT}`);
-  });
-
-  myClient = client;
-
-
-  app.get('/scores', (req, res) => {
-    const scoresQuery = format('SELECT * FROM scores ORDER BY score DESC LIMIT 15');
-    myClient.query(scoresQuery, (errors, results) => {
-      if (errors) {
-        console.log(errors);
-      }
-      res.send(results.rows);
-    });
-  });
+// pool.connect((err, client, done) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(client);
+//   app.listen(process.env.PORT || PORT, () => {
+//     console.log(__dirname);
+//     console.log(`listening on ${PORT}`);
+//   });
+//
+//   myClient = client;
+//
+//
+//   app.get('/scores', (req, res) => {
+//     const scoresQuery = format('SELECT * FROM scores ORDER BY score DESC LIMIT 15');
+//     myClient.query(scoresQuery, (errors, results) => {
+//       if (errors) {
+//         console.log(errors);
+//       }
+//       res.send(results.rows);
+//     });
+//   });
 
   //
   // app.post('/scores', (req, res) => {
