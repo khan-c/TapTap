@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
   //     res.send(results);
   //   });
   // });
-});
+// });
 
 pool.connect()
   .then(client => {
