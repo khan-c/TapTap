@@ -62,19 +62,19 @@ app.get('/scores', (req, res) => {
   });
 });
 
-// app.post('/scores', (req, res) => {
-//   return pool.connect.then(theClient => {
-//     const { name, score } = req.body;
-//     const data = [name, score];
-//     const postQuery = format("INSERT INTO scores VALUES (%L)", data);
-//     theClient.query(postQuery, (errors, results) => {
-//       if (errors) {
-//         console.log(errors);
-//       }
-//       res.send(results);
-//     });
-//   });
-// });
+app.post('/scores', (req, res) => {
+  return pool.connect.then(theClient => {
+    const { name, score } = req.body;
+    const data = [name, score];
+    const postQuery = format("INSERT INTO scores VALUES (%L)", data);
+    theClient.query(postQuery, (errors, results) => {
+      if (errors) {
+        console.log(errors);
+      }
+      res.send(results);
+    });
+  });
+});
 
 // pool.connect((err, client, done) => {
 //   if (err) {
