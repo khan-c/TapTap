@@ -9,9 +9,10 @@ const PORT = 8000;
 const bodyParser = require('body-parser');
 
 const config = {
-  user: PGUSER,
-  database: PGDATABASE,
-  max: 10,
+  // user: PGUSER,
+  connectionString: process.env.DATABASE_URL,
+  // database: PGDATABASE,
+  // max: 10,
   idleTimeoutMillis: 30000
 };
 
