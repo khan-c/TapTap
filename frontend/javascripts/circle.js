@@ -2,7 +2,7 @@ import Timer from './timer';
 
 
 class Circle {
-  constructor(x, y, game, type) {
+  constructor(x, y, game, type, mode) {
     this.gameHeight = y;
     this.gameWidth = x;
     this.gameDiagonal = Math.sqrt(x * x + y * y);
@@ -54,10 +54,17 @@ class Circle {
 
     this.radius = this.TYPES[type].radius;
     this.color = this.TYPES[type].color;
-    this.lifeTime = this.TYPES[type].lifeTime;
     this.timeBonus = this.TYPES[type].timeBonus;
     this.timePenalty = this.TYPES[type].timePenalty;
     this.points = this.TYPES[type].points;
+
+    this.lifeTime = this.TYPES[type].lifeTime;
+
+    if (mode === 'casual') {
+      this.lifeTime += 1500;
+      this.timeBonus += 250;
+    }
+
 
     this.gradient = this.radius;
     this.x = Math.random() * (x - 2 * this.radius) + this.radius;

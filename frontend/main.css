@@ -259,3 +259,10 @@ span {
 .hidden {
   display: none;
 }
+
+.notes {
+  position: fixed;
+  bottom: 5px;
+  left: calc(50% - 150px);
+  opacity: .65;
+}

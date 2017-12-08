@@ -14,6 +14,7 @@ class Game {
     this.startTime = new Date;
     this.elapsedTime = 0;
     this.spawnScale = 500;
+    this.spawnBase = 200;
     this.gameStats = {
       hits: 0,
       badHits: 0,
@@ -25,75 +26,96 @@ class Game {
     this.circleTypes = ['basic', 'bonusTime', 'pointBomb', 'timeBomb', 'gold'];
   }
 
-  start() {
-    this.timer = new Timer(this.gameOver.bind(this), 14999);
-    this.spawnCircles();
+  start(mode) {
+    if (mode === 'casual') {
+      this.timer = new Timer(this.gameOver.bind(this), 29999);
+      this.spawnBase = 500;
+    } else {
+      this.timer = new Timer(this.gameOver.bind(this), 14999);
+    }
+
+    this.spawnCircles(mode);
   }
 
-  spawnCircles() {
+  spawnCircles(mode) {
     this.interval = setTimeout(() => {
-      const type = this.circleTypes[this.calculateType()];
-      const c = new Circle(this.DIM_X, this.DIM_Y, this, type);
+      const type = this.circleTypes[this.calculateType(mode)];
+      const c = new Circle(this.DIM_X, this.DIM_Y, this, type, mode);
       this.gameStats.totalCircles += 1;
       this.circles.push(c);
-      this.spawnCircles();
-    }, Math.random() * this.spawnScale + 200);
+      this.spawnCircles(mode);
+    }, Math.random() * this.spawnScale + this.spawnBase);
   }
 
-  calculateType() {
-    const elapsedGameTime = this.elapsedGameTime();
-    const rand = Math.random();
-    if (elapsedGameTime < 7000) {
-      return 0;
-    } else if (elapsedGameTime < 10000) {
-      if (rand < .5) {
-        return 0;
-      } else {
-        return 1;
-      }
-    } else if (elapsedGameTime < 15000) {
-      if (rand < .6) {
-        return 0;
-      } else if (rand < .8) {
-        return 1;
-      } else {
-        return 2;
-      }
-    } else if (elapsedGameTime < 22000) {
-      if (rand < .5) {
+  calculateType(mode) {
+    if (mode === 'casual') {
+      const rand = Math.random();
+      if (rand < .4) {
         return 0;
       } else if (rand < .65) {
         return 1;
-      } else if (rand < .85) {
-        return 2;
-      } else {
-        return 3;
-      }
-    } else if (elapsedGameTime < 60000){
-      this.spawnScale = 200;
-      if (rand < .5) {
-        return 0;
-      } else if (rand < .6) {
-        return 1;
       } else if (rand < .75) {
         return 2;
-      } else if (rand < .9) {
+      } else if (rand < .85) {
         return 3;
       } else {
         return 4;
       }
     } else {
-      this.spawnScale = 0;
-      if (rand < .2) {
+      const elapsedGameTime = this.elapsedGameTime();
+      const rand = Math.random();
+      if (elapsedGameTime < 7000) {
         return 0;
-      } else if (rand < .3) {
-        return 1;
-      } else if (rand < .6) {
-        return 2;
-      } else if (rand < .9) {
-        return 3;
+      } else if (elapsedGameTime < 10000) {
+        if (rand < .5) {
+          return 0;
+        } else {
+          return 1;
+        }
+      } else if (elapsedGameTime < 15000) {
+        if (rand < .6) {
+          return 0;
+        } else if (rand < .8) {
+          return 1;
+        } else {
+          return 2;
+        }
+      } else if (elapsedGameTime < 22000) {
+        if (rand < .5) {
+          return 0;
+        } else if (rand < .65) {
+          return 1;
+        } else if (rand < .85) {
+          return 2;
+        } else {
+          return 3;
+        }
+      } else if (elapsedGameTime < 60000){
+        this.spawnScale = 200;
+        if (rand < .5) {
+          return 0;
+        } else if (rand < .6) {
+          return 1;
+        } else if (rand < .75) {
+          return 2;
+        } else if (rand < .9) {
+          return 3;
+        } else {
+          return 4;
+        }
       } else {
-        return 4;
+        this.spawnScale = 0;
+        if (rand < .2) {
+          return 0;
+        } else if (rand < .3) {
+          return 1;
+        } else if (rand < .6) {
+          return 2;
+        } else if (rand < .9) {
+          return 3;
+        } else {
+          return 4;
+        }
       }
     }
   }
@@ -168,7 +190,7 @@ class Game {
   displayScore(ctx) {
     ctx.font = "30px Quicksand";
     ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
-    const x = .25 * this.DIM_X;
+    const x = .2 * this.DIM_X;
     ctx.fillText(`score`, x, 30);
     ctx.font = "36px Quicksand";
     ctx.fillStyle = 'rgb(0, 99, 12)';
@@ -178,7 +200,7 @@ class Game {
   displayTime(ctx) {
     ctx.font = "30px Quicksand";
     ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
-    const x = .7 * this.DIM_X;
+    const x = .6 * this.DIM_X;
     ctx.fillText(`time`, x, 30);
     ctx.font = "36px Quicksand";
     ctx.fillStyle = 'rgb(71, 62, 246)';

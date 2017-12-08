@@ -1,6 +1,7 @@
 import Game from './game';
 import Stats from './stats';
 import Menu from './menu';
+import { saveScores } from './api_util';
 
 class GameView {
   constructor(ctx, canvas) {
@@ -36,9 +37,9 @@ class GameView {
     );
   }
 
-  start() {
+  start(mode) {
     this.game = new Game(this.canvas);
-    this.game.start();
+    this.game.start(mode);
     this.render();
     window.addEventListener("keydown", this.pauseFunc);
   }
@@ -100,8 +101,7 @@ class GameView {
   }
 
   recordName(name) {
-    this.stats.games[this.stats.games.length - 1].gameStats.player = name;
-    this.stats.saveStats({'name':name, 'score':this.game.score});
+    saveScores({'name':name, 'score':this.game.score});
   }
 
   quit() {

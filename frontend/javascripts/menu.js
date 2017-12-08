@@ -33,10 +33,21 @@ class Menu {
       this.showEl(this.playMenu);
     });
 
+    const normal = document.getElementById('normal');
+    normal.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.gameView.start('normal');
+      this.mode = 'normal';
+      this.showEl(this.form);
+      this.hideEl(this.playMenu);
+    });
+
     const casual = document.getElementById('casual');
     casual.addEventListener("click", (e) => {
       e.preventDefault();
-      this.gameView.start();
+      this.gameView.start('casual');
+      this.mode = 'casual';
+      this.hideEl(this.form);
       this.hideEl(this.playMenu);
     });
 
@@ -82,7 +93,7 @@ class Menu {
 
   gameOver() {
     this.showEl(this.gameoverMenu);
-    this.showEl(this.form);
+    // this.showEl(this.form);
   }
 
   recordName(e) {
@@ -106,7 +117,7 @@ class Menu {
 
   handleRestartButton(e) {
     e.preventDefault();
-    this.gameView.start();
+    this.gameView.start(this.mode);
     this.hideEl(this.gameoverMenu);
   }
 

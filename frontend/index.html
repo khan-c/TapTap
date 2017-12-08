@@ -32,8 +32,8 @@
     <div class="play-modal hidden">
       <div class="play-menu">
         <h1>Select a mode</h1>
+        <button id="normal" type="button" name="button">Normal</button>
         <button id="casual" type="button" name="button">Casual</button>
-        <button id="quick-play" type="button" name="button">Quick Play</button>
         <button class="main-menu" type="button" name="button">Main Menu</button>
         <p class="ion-android-volume-off mute hidden"></p>
         <p class="ion-android-volume-up mute"></p>
@@ -87,6 +87,10 @@
             <p class="pp">+points</p>
           </span>
         </div>
+        <div>
+          <p>Press 'M' to mute</p>
+          <p>Press 'P' or 'Esc' to pause</p>
+        </div>
         <button class="main-menu" type="button" name="button">Main Menu</button>
       </div>
     </div>
@@ -132,6 +136,10 @@
           <ul id="stats-info"></ul>
         <button class="main-menu" type="button" name="button">Main Menu</button>
       </div>
+    </div>
+
+    <div class="notes">
+      'M' to toggle mute   ~~   'P' / 'ESC' to pause
     </div>
 
     <canvas id="myCanvas"></canvas>
