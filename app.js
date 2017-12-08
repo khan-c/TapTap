@@ -46,7 +46,7 @@ app.get('/scores', (req, res) => {
       if (errors) {
         console.log(errors);
       }
-      console.log(results);
+      console.log(client);
       res.send(results.rows);
     });
     client.end();
