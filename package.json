@@ -6,7 +6,7 @@
     "lib": "lib"
   },
   "engines": {
-    "node": ">=8.1.0"
+    "node": "6.10.1"
   },
   "scripts": {
     "build": "webpack --watch",
@@ -18,8 +18,5 @@
     "express": "^4.16.2",
     "sqlite3": "^3.1.13",
     "webpack": "^3.4.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
   }
 }
