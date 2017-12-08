@@ -1,7 +1,7 @@
 # TapTap
 
 ## Introduction
-[TapTap live]()
+[TapTap live](https://taptaps.herokuapp.com/)
 
 TapTap is a fun fast paced click game built with HTML5, CSS3, and vanilla Javascript. A small Node / Express backend was built to handle universal high scores.
 
