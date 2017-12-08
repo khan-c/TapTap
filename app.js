@@ -30,17 +30,18 @@ pool.connect((err, client, done) => {
   if (err) {
     console.log(err);
   }
+  console.log(client);
   app.listen(process.env.PORT || PORT, () => {
     console.log(__dirname);
     console.log(`listening on ${PORT}`);
   });
 
-  // myClient = client;
+  myClient = client;
 
 
   app.get('/scores', (req, res) => {
     const scoresQuery = format('SELECT * FROM scores ORDER BY score DESC LIMIT 15');
-    client.query(scoresQuery, (errors, results) => {
+    myClient.query(scoresQuery, (errors, results) => {
       if (errors) {
         console.log(errors);
       }
@@ -53,7 +54,7 @@ pool.connect((err, client, done) => {
     const { name, score } = req.body;
     const data = [name, score];
     const postQuery = format("INSERT INTO scores VALUES (%L)", data);
-    client.query(postQuery, (errors, results) => {
+    myClient.query(postQuery, (errors, results) => {
       if (errors) {
         console.log(errors);
       }
