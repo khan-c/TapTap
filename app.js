@@ -1,10 +1,22 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
+const pg = require('pg');
+const format = require('pg-format');
+const PGUSER = 'kylechen';
+const PGDATABASE = 'taptap';
 const PORT = 8000;
 const bodyParser = require('body-parser');
-let db = new sqlite3.Database('scores.sqlite');
+
+const config = {
+  user: PGUSER,
+  database: PGDATABASE,
+  max: 10,
+  idleTimeoutMillis: 30000
+};
+
+const pool = new pg.Pool(config);
+let myClient;
 
 app.use(express.static('frontend'));
 app.use(bodyParser.json());
@@ -14,33 +26,38 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './frontend/index.html'));
 });
 
-app.get('/scores', (req, res) => {
-  db = new sqlite3.Database('scores.sqlite');
-  // let data = [];
-  db.all(
-    'SELECT name, score FROM scores ORDER BY score DESC LIMIT 20',
-    (err, rows) => {
-      res.send(rows);
-      db.close();
-    }
-  );
-});
-
-app.listen(PORT, () => {
-  console.log(__dirname);
-  console.log(`listening on ${PORT}`);
-});
-
-app.post('/scores', (req, res) => {
-  db = new sqlite3.Database('scores.sqlite');
-  if (req.body.score === '') {
-    res.status(500).send({error: 'No score to input!'});
-  } else {
-    let post = db.prepare('INSERT INTO scores VALUES (?, ?)');
-    post.run(req.body.name, req.body.score, err => {
-      res.json({success: "Updated successfully", status: 200, score: { id: this.lastID, name: req.body.name, score: req.body.score}});
-      post.finalize();
-      db.close();
-    });
+pool.connect((err, client, done) => {
+  if (err) {
+    console.log(err);
   }
+  app.listen(PORT, () => {
+    console.log(__dirname);
+    console.log(`listening on ${PORT}`);
+  });
+
+  myClient = client;
+
+
+  app.get('/scores', (req, res) => {
+    const scoresQuery = format('SELECT * FROM scores ORDER BY score DESC LIMIT 15');
+    myClient.query(scoresQuery, (errors, results) => {
+      if (errors) {
+        console.log(errors);
+      }
+      res.send(results.rows);
+    });
+  });
+
+
+  app.post('/scores', (req, res) => {
+    const { name, score } = req.body;
+    const data = [name, score];
+    const postQuery = format("INSERT INTO scores VALUES (%L)", data);
+    myClient.query(postQuery, (errors, results) => {
+      if (errors) {
+        console.log(errors);
+      }
+      res.send(results);
+    });
+  });
 });
