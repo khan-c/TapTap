@@ -16,16 +16,14 @@ app.get('/', (req, res) => {
 
 app.get('/scores', (req, res) => {
   db = new sqlite3.Database('scores.sqlite');
-  let data = {};
+  // let data = [];
   db.all(
-    'SELECT rowid, name, score FROM scores ORDER BY score DESC',
+    'SELECT name, score FROM scores ORDER BY score DESC LIMIT 20',
     (err, rows) => {
-      rows.forEach( row => {
-        data[row.rowid] = { name: row.name, score: row.score };
-      });
-    res.send(data);
-    db.close();
-  });
+      res.send(rows);
+      db.close();
+    }
+  );
 });
 
 app.listen(PORT, () => {

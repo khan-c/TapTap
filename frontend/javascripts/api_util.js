@@ -8,7 +8,6 @@ export const saveScores = (scores) => {
     const OK = 200;
     if (xhr.readyState === DONE) {
       if (xhr.status === OK) {
-        console.log("post check");
         return xhr.responseText;
       } else {
         console.log(xhr.status);
@@ -20,21 +19,25 @@ export const saveScores = (scores) => {
 };
 
 export const fetchScores = () => {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', '/scores');
-
-  xhr.onreadystatechange = function() {
-    const DONE = 4;
-    const OK = 200;
-    if (xhr.readyState === DONE) {
-      if (xhr.status === OK) {
-        return xhr.responseText;
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', '/scores');
+    xhr.onload = function() {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(xhr.response);
       } else {
-        console.log(xhr.status);
+        reject({
+          status: this.status,
+          statusText: xhr.statusText
+        });
       }
-    }
-  };
-
-  xhr.send(null);
-  return xhr;
+    };
+    xhr.onerror = function() {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText
+      });
+    };
+    xhr.send();
+  });
 };

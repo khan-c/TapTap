@@ -101,7 +101,7 @@ class GameView {
 
   recordName(name) {
     this.stats.games[this.stats.games.length - 1].gameStats.player = name;
-    // this.stats.saveStats();
+    this.stats.saveStats({'name':name, 'score':this.game.score});
   }
 
   quit() {

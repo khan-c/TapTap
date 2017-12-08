@@ -43,10 +43,10 @@ class Game {
   calculateType() {
     const elapsedGameTime = this.elapsedGameTime();
     const rand = Math.random();
-    if (elapsedGameTime < 10000) {
+    if (elapsedGameTime < 7000) {
       return 0;
     } else if (elapsedGameTime < 10000) {
-      if (rand < .6) {
+      if (rand < .5) {
         return 0;
       } else {
         return 1;
@@ -59,7 +59,7 @@ class Game {
       } else {
         return 2;
       }
-    } else if (elapsedGameTime < 20000) {
+    } else if (elapsedGameTime < 22000) {
       if (rand < .5) {
         return 0;
       } else if (rand < .65) {
@@ -69,13 +69,26 @@ class Game {
       } else {
         return 3;
       }
-    } else {
+    } else if (elapsedGameTime < 60000){
       this.spawnScale = 200;
       if (rand < .5) {
         return 0;
       } else if (rand < .6) {
         return 1;
       } else if (rand < .75) {
+        return 2;
+      } else if (rand < .9) {
+        return 3;
+      } else {
+        return 4;
+      }
+    } else {
+      this.spawnScale = 0;
+      if (rand < .2) {
+        return 0;
+      } else if (rand < .3) {
+        return 1;
+      } else if (rand < .6) {
         return 2;
       } else if (rand < .9) {
         return 3;

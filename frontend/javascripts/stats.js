@@ -10,21 +10,22 @@ class Stats {
   }
 
   getStats() {
-    // const scores = this.fetchStats();
-    const highScores = this.games.sort(
-      (game1, game2) => game2.score - game1.score
-    );
+    fetchScores().then(scores => {
+      this.parse(JSON.parse(scores));
+    });
+  }
+
+  parse(scores) {
+    const highScores = Object.values(scores);
+    // .sort(
+    //   (game1, game2) => game2 - game1.score
+    // );
 
     return highScores.slice(0,10);
   }
 
-  saveStats() {
-    saveScores(JSON.stringify(this.games));
-  }
-
-  fetchStats() {
-    console.log("fetching");
-    return fetchScores();
+  saveStats(score) {
+    saveScores(score);
   }
 
   averageScore() {

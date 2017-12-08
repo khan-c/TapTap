@@ -1,3 +1,5 @@
+import { fetchScores } from './api_util';
+
 class Menu {
   constructor(gameView) {
     this.gameView = gameView;
@@ -131,23 +133,26 @@ class Menu {
 
     const statsInfo = document.getElementById('stats-info');
     statsInfo.innerHTML = '';
-    // const highScores = this.gameView.stats.fetchStats();
-    // console.log(highScores);
-    this.gameView.stats.getStats().forEach((game, idx) => {
-      const li = document.createElement('li');
-      const rank = document.createElement('p');
-      const name = document.createElement('p');
-      const score = document.createElement('p');
-      rank.innerHTML = `${idx + 1}. `;
-      rank.className = "rank";
-      name.innerHTML = ` ${game.gameStats.player}`;
-      name.className = "high-score-name";
-      score.innerHTML = game.score;
-      li.appendChild(rank);
-      li.appendChild(name);
-      li.appendChild(score);
-      statsInfo.appendChild(li);
-    });
+    const highScores = fetchScores().then(
+      data => {
+        const scores = JSON.parse(data);
+        scores.forEach((game, idx) => {
+          const li = document.createElement('li');
+          const rank = document.createElement('p');
+          const name = document.createElement('p');
+          const score = document.createElement('p');
+          rank.innerHTML = `${idx + 1}. `;
+          rank.className = "rank";
+          name.innerHTML = `${game.name}`;
+          name.className = "high-score-name";
+          score.innerHTML = game.score;
+          li.appendChild(rank);
+          li.appendChild(name);
+          li.appendChild(score);
+          statsInfo.appendChild(li);
+        });
+      }
+    );
   }
 
   handleQuitButton(e) {

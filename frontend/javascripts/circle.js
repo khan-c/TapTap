@@ -14,12 +14,12 @@ class Circle {
         radius: 0.04 * this.gameDiagonal,
         color: "rgba(0, 0, 255, 0.8)",
         lifeTime: Math.random() * 500 + 1500,
-        timeBonus: 500,
+        timeBonus: 250,
         timePenalty: -250,
         points: 1
       },
       bonusTime: {
-        radius: 0.03 * this.gameDiagonal,
+        radius: 0.025 * this.gameDiagonal,
         color: "rgba(255, 255, 255, 0.9)",
         lifeTime: Math.random() * 250 + 1000,
         timeBonus: 1000,
