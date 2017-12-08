@@ -19,12 +19,12 @@ Users will be able to see the stats of their play.
 [x] Have multiple levels of game play
 [x] Start, pause, exit game play
 [x] Initial gameplay directions
-[ ] Statistics page - tracks session statistics
+[x] ~~Statistics page - tracks session statistics~~ Global high score page
 
 Considered features:
 
 [ ] Special stats page: use gameplay events as data for data visualization
-[x] Track user historical gameplay statistics (or all players)
+[x] Track user historical gameplay statistics (or all players) *implemented above*
 
 ### Wireframes
 
@@ -70,17 +70,17 @@ Scripts -
 - [x] Implement game modes
   - [x] casual (does not record high scores)
   - [x] normal (records high scores)
-  - ~~[ ] quick play~~
-  - ~~[ ] expert~~
-  - ~~[ ] unending~~
+  - [ ] ~~quick play~~
+  - [ ] ~~expert~~
+  - [ ] ~~unending~~
 
 **Day 4:** Build experience
 - [x] Add sound effects and music
-- ~~[ ] Build more levels~~ Decided unending gameplay was more appealing
+- [ ] ~~Build more levels~~ Decided unending gameplay was more appealing
 - [x] Implemented Node / Express backend
 
 **Day 5:** Localstorage
-- ~~[ ] Resarch localstorage and how to implement to store user scores~~
-- ~~[ ] Research bonus features~~
+- [ ] ~~Resarch localstorage and how to implement to store user scores~~
+- [ ] ~~Research bonus features~~
 - [ ] Figure out how to host project
 - [ ] Finish production README
