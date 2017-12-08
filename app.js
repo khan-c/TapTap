@@ -17,7 +17,6 @@ const config = {
 };
 
 const pool = new pg.Pool(config);
-// let myClient;
 
 app.use(express.static('frontend'));
 app.use(bodyParser.json());
@@ -28,12 +27,6 @@ app.listen(process.env.PORT || PORT, () => {
   console.log(`listening on ${PORT}`);
 });
 
-// const client = new pg.Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: true
-// });
-// client.connect();
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './frontend/index.html'));
 });
@@ -41,17 +34,6 @@ app.get('/', (req, res) => {
 
 app.get('/scores', (req, res) => {
   const scoresQuery = format('SELECT * FROM scores ORDER BY score DESC LIMIT 15');
-  // return client.connect().then(() => {
-  //   client.query(scoresQuery, (errors, results) => {
-  //     if (errors) {
-  //       console.log(errors);
-  //     }
-  //
-  //     res.send(results.rows);
-  //   });
-  //   client.end();
-  // });
-
   return pool.connect().then(theclient => {
     theclient.query(scoresQuery, (errors, results) => {
       if (errors) {
@@ -63,10 +45,10 @@ app.get('/scores', (req, res) => {
 });
 
 app.post('/scores', (req, res) => {
-  return pool.connect.then(theClient => {
-    const { name, score } = req.body;
-    const data = [name, score];
-    const postQuery = format("INSERT INTO scores VALUES (%L)", data);
+  const { name, score } = req.body;
+  const data = [name, score];
+  const postQuery = format("INSERT INTO scores VALUES (%L)", data);
+  return pool.connect().then(theClient => {
     theClient.query(postQuery, (errors, results) => {
       if (errors) {
         console.log(errors);
@@ -75,15 +57,3 @@ app.post('/scores', (req, res) => {
     });
   });
 });
-
-// pool.connect((err, client, done) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//
-//   myClient = client;
-//
-//
-//
-//
-// });
