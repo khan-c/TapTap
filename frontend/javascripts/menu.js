@@ -4,6 +4,7 @@ class Menu {
     this.gameoverMenu = document.querySelector('.gameover-modal');
     this.pauseMenu = document.querySelector('.pause-modal');
     this.menu = document.querySelector('.menu-modal');
+    this.playMenu = document.querySelector('.play-modal');
     this.howTo = document.querySelector('.how-to-modal');
     this.statsPage = document.querySelector('.stats-modal');
     this.form = document.querySelector('.player-name');
@@ -26,8 +27,15 @@ class Menu {
     const play = document.getElementById('play');
     play.addEventListener("click", (e) => {
       e.preventDefault();
-      this.gameView.start();
       this.hideEl(this.menu);
+      this.showEl(this.playMenu);
+    });
+
+    const casual = document.getElementById('casual');
+    casual.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.gameView.start();
+      this.hideEl(this.playMenu);
     });
 
     const restart = document.getElementById('restart');
@@ -55,6 +63,11 @@ class Menu {
     this.mute.forEach(muteButton =>
       muteButton.addEventListener("click", this.toggleMute.bind(this))
     );
+    window.addEventListener("keydown", (e) => {
+      if (e.keyCode === 77) {
+        this.toggleMute();
+      }
+    });
   }
 
   pause() {
@@ -101,6 +114,7 @@ class Menu {
     this.hideEl(this.gameoverMenu);
     this.hideEl(this.statsPage);
     this.hideEl(this.howTo);
+    this.hideEl(this.playMenu);
     this.showEl(this.menu);
   }
 

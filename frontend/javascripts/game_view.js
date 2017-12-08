@@ -76,7 +76,7 @@ class GameView {
   }
 
   pauseFunc(e) {
-    if (e.keyCode === 27) {
+    if (e.keyCode === 27 || e.keyCode === 80) {
       this.togglePause();
     }
   }

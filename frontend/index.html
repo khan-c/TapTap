@@ -20,6 +20,21 @@
         <button id="play" type="button" name="button">Play</button>
         <button id="how-to" type="button" name="button">How To Play</button>
         <button id="stats" type="button" name="button">High Scores</button>
+        <div class="menu-buttons">
+          <p class="ion-android-volume-off mute hidden"></p>
+          <p class="ion-android-volume-up mute"></p>
+          <a href="https://www.github.com/khan-c" ><p class="ion-social-github"></p></a>
+          <a href="https://www.linkedin.com/in/kylehchen/" ><p class="ion-social-linkedin"></p></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="play-modal hidden">
+      <div class="play-menu">
+        <h1>Select a mode</h1>
+        <button id="casual" type="button" name="button">Casual</button>
+        <button id="quick-play" type="button" name="button">Quick Play</button>
+        <button class="main-menu" type="button" name="button">Main Menu</button>
         <p class="ion-android-volume-off mute hidden"></p>
         <p class="ion-android-volume-up mute"></p>
       </div>
@@ -34,42 +49,42 @@
         <div class="circle-type">
           <img src="./images/blue.png" alt="">
           <span>
-            <p class="pp">+1 pt</p>&nbsp;
+            <p class="pp">+points</p>&nbsp;
             and&nbsp;
-            <p class="ps">+0.5 sec </p>&nbsp;
-            if clicked
+            <p class="ps">+time</p>&nbsp;
+            if clicked /
             <br>
-            <p class="ns">-0.25 seconds </p>&nbsp;
+            <p class="ns">-time</p>&nbsp;
             <p> if never clicked</p>
           </span>
         </div>
         <div class="circle-type">
           <img src="./images/white.png" alt="">
           <span>
-            <p class="pp">+1 second</p>&nbsp;
+            <p class="pp">+time</p>&nbsp;
             if clicked
           </span>
         </div>
         <div class="circle-type">
           <img src="./images/red.png" alt="">
           <span>
-            <p class="np">-2 points</p>&nbsp;
+            <p class="np">-points</p>&nbsp;
              if clicked
           </span>
         </div>
         <div class="circle-type">
           <img src="./images/black.png" alt="">
           <span>
-            <p class="ns">-1 second</p>&nbsp;
+            <p class="ns">-time</p>&nbsp;
              if clicked
           </span>
         </div>
         <div class="circle-type">
           <img src="./images/gold.png" alt="">
           <span>
-            <p class="ps">+1 second</p>&nbsp;
-             and &nbsp;
-            <p class="pp">+5 points</p>
+            <p class="ps">+time</p>&nbsp;
+             AND &nbsp;
+            <p class="pp">+points</p>
           </span>
         </div>
         <button class="main-menu" type="button" name="button">Main Menu</button>
@@ -114,13 +129,7 @@
     <div class="stats-modal hidden">
       <div class="stats-page">
         <h1 class="title">High Scores</h1>
-        <!-- <div class="stats-data"> -->
-          <!-- <h4 id="aScore"></h4>
-          <h4 id="aAccuracy"></h4>
-          <h4 id="aMissed"></h4>
-          <h3>High Scores</h3> -->
           <ul id="stats-info"></ul>
-        <!-- </div> -->
         <button class="main-menu" type="button" name="button">Main Menu</button>
       </div>
     </div>

@@ -37,7 +37,7 @@ button:active {
 .mute {
   color: rgba(11, 65, 224, 0.85);
   font-size: 30px;
-  margin: 20px;
+  margin: 20px 10px;
 }
 
 .mute:hover {
@@ -53,7 +53,8 @@ button:active {
 .pause-modal,
 .gameover-modal,
 .stats-modal,
-.how-to-modal {
+.how-to-modal,
+.play-modal {
   background: rgba(187, 187, 187, 0.3);
   position: fixed;
   top: 0;
@@ -66,7 +67,8 @@ button:active {
 .pause-menu,
 .gameover-menu,
 .stats-page,
-.how-to-page {
+.how-to-page,
+.play-menu {
   position: fixed;
   top: 12.5%;
   left: 25%;
@@ -80,6 +82,29 @@ button:active {
   border-radius: 20px;
   padding: 10px;
   box-sizing: border-box;
+}
+
+.menu-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.menu-buttons a {
+  margin: 5px;
+  padding: 5px;
+  font-size: 25px;
+}
+
+.menu-buttons a:hover {
+  transform: scale(1.1);
+}
+
+.menu-buttons a:active{
+  transform: scale(1);
+}
+
+.ion-social-github, .ion-social-linkedin {
+  color: rgba(11, 65, 224, 0.85);
 }
 
 .circle-type {
@@ -140,7 +165,6 @@ h2 {
 }
 
 h3 {
-
   border-bottom: 1px solid rgba(1, 108, 21, 0.7);
   margin: 0;
 }

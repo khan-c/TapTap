@@ -1,5 +1,5 @@
-import GameView from './lib/game_view';
-import { saveScores } from './lib/api_util';
+import GameView from './javascripts/game_view';
+import { fetchScores, saveScores } from './javascripts/api_util';
 
 document.addEventListener("DOMContentLoaded", e => {
   const canvas = document.getElementById("myCanvas");
@@ -10,5 +10,6 @@ document.addEventListener("DOMContentLoaded", e => {
 
   const gameView = new GameView(ctx, canvas);
 
+  window.fetchScores = fetchScores;
   window.saveScores = saveScores;
 });

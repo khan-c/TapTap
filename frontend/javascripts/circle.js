@@ -5,12 +5,13 @@ class Circle {
   constructor(x, y, game, type) {
     this.gameHeight = y;
     this.gameWidth = x;
+    this.gameDiagonal = Math.sqrt(x * x + y * y);
     this.game = game;
     this.type = type;
 
     this.TYPES = {
       basic: {
-        radius: 0.04 * this.gameWidth,
+        radius: 0.04 * this.gameDiagonal,
         color: "rgba(0, 0, 255, 0.8)",
         lifeTime: Math.random() * 500 + 1500,
         timeBonus: 500,
@@ -18,7 +19,7 @@ class Circle {
         points: 1
       },
       bonusTime: {
-        radius: 0.03 * this.gameWidth,
+        radius: 0.03 * this.gameDiagonal,
         color: "rgba(255, 255, 255, 0.9)",
         lifeTime: Math.random() * 250 + 1000,
         timeBonus: 1000,
@@ -26,7 +27,7 @@ class Circle {
         points: 0
       },
       pointBomb: {
-        radius: 0.05 * this.gameWidth,
+        radius: 0.05 * this.gameDiagonal,
         color: "rgba(255, 0, 0, 0.9)",
         lifeTime: Math.random() * 750 + 2000,
         timeBonus: 0,
@@ -34,7 +35,7 @@ class Circle {
         points: -2
       },
       timeBomb: {
-        radius: 0.04 * this.gameWidth,
+        radius: 0.04 * this.gameDiagonal,
         color: "rgba(26, 0, 69, 0.8)",
         lifeTime: Math.random() * 750 + 2000,
         timeBonus: -1000,
@@ -42,7 +43,7 @@ class Circle {
         points: 0
       },
       gold: {
-        radius: 0.02 * this.gameWidth,
+        radius: 0.02 * this.gameDiagonal,
         color: "rgba(255, 222, 0, 0.8)",
         lifeTime: Math.random() * 500 + 1000,
         timeBonus: 1000,
